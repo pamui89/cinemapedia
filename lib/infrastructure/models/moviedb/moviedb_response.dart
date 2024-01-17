@@ -1,14 +1,8 @@
+import 'movie_moviedb.dart';
 
-import 'package:cinemapedia/infraestructure/models/the_movie_db/the_movie_db_movie.dart';
 
-class TheMovieDbResponse {
-    final Dates? dates;
-    final int page;
-    final List<TheMovieDbMovie> results;
-    final int totalPages;
-    final int totalResults;
-
-    TheMovieDbResponse({
+class MovieDbResponse {
+    MovieDbResponse({
         required this.dates,
         required this.page,
         required this.results,
@@ -16,16 +10,22 @@ class TheMovieDbResponse {
         required this.totalResults,
     });
 
-    factory TheMovieDbResponse.fromJson(Map<String, dynamic> json) => TheMovieDbResponse(
-        dates: json["dates"] ? Dates.fromJson(json["dates"]) : null,
+    final Dates? dates;
+    final int page;
+    final List<MovieMovieDB> results;
+    final int totalPages;
+    final int totalResults;
+
+    factory MovieDbResponse.fromJson(Map<String, dynamic> json) => MovieDbResponse(
+        dates: json["dates"] != null ? Dates.fromJson(json["dates"]) : null,
         page: json["page"],
-        results: List<TheMovieDbMovie>.from(json["results"].map((x) => TheMovieDbMovie.fromJson(x))),
+        results: List<MovieMovieDB>.from(json["results"].map((x) => MovieMovieDB.fromJson(x))),
         totalPages: json["total_pages"],
         totalResults: json["total_results"],
     );
 
     Map<String, dynamic> toJson() => {
-        "dates": dates?.toJson(),
+        "dates": dates == null ? null : dates!.toJson(),
         "page": page,
         "results": List<dynamic>.from(results.map((x) => x.toJson())),
         "total_pages": totalPages,
@@ -34,13 +34,13 @@ class TheMovieDbResponse {
 }
 
 class Dates {
-    final DateTime maximum;
-    final DateTime minimum;
-
     Dates({
         required this.maximum,
         required this.minimum,
     });
+
+    final DateTime maximum;
+    final DateTime minimum;
 
     factory Dates.fromJson(Map<String, dynamic> json) => Dates(
         maximum: DateTime.parse(json["maximum"]),
@@ -52,4 +52,5 @@ class Dates {
         "minimum": "${minimum.year.toString().padLeft(4, '0')}-${minimum.month.toString().padLeft(2, '0')}-${minimum.day.toString().padLeft(2, '0')}",
     };
 }
+
 

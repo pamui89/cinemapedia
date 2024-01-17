@@ -1,20 +1,5 @@
-class TheMovieDbMovie {
-    final bool adult;
-    final String backdropPath;
-    final List<int> genreIds;
-    final int id;
-    final String originalLanguage;
-    final String originalTitle;
-    final String overview;
-    final double popularity;
-    final String posterPath;
-    final DateTime releaseDate;
-    final String title;
-    final bool video;
-    final double voteAverage;
-    final int voteCount;
-
-    TheMovieDbMovie({
+class MovieMovieDB {
+    MovieMovieDB({
         required this.adult,
         required this.backdropPath,
         required this.genreIds,
@@ -31,7 +16,22 @@ class TheMovieDbMovie {
         required this.voteCount,
     });
 
-    factory TheMovieDbMovie.fromJson(Map<String, dynamic> json) => TheMovieDbMovie(
+    final bool adult;
+    final String backdropPath;
+    final List<int> genreIds;
+    final int id;
+    final String originalLanguage;
+    final String originalTitle;
+    final String overview;
+    final double popularity;
+    final String posterPath;
+    final DateTime releaseDate;
+    final String title;
+    final bool video;
+    final double voteAverage;
+    final int voteCount;
+
+    factory MovieMovieDB.fromJson(Map<String, dynamic> json) => MovieMovieDB(
         adult: json["adult"] ?? false,
         backdropPath: json["backdrop_path"] ?? '',
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
@@ -64,16 +64,4 @@ class TheMovieDbMovie {
         "vote_average": voteAverage,
         "vote_count": voteCount,
     };
-}
-
-class EnumValues<T> {
-    Map<String, T> map;
-    late Map<T, String> reverseMap;
-
-    EnumValues(this.map);
-
-    Map<T, String> get reverse {
-        reverseMap = map.map((k, v) => MapEntry(v, k));
-        return reverseMap;
-    }
 }
