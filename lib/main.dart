@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/material.dart';
 
@@ -9,7 +8,6 @@ import 'package:cinemapedia/config/theme/app_theme.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 Future<void> main() async{
-  print(Directory.current);
 
   await dotenv.load(fileName: '.env');
 
