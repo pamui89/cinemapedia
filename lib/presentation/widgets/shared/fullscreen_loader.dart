@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class FullscreenLoader extends StatelessWidget {
-  FullscreenLoader({super.key});
+  const FullscreenLoader({super.key});
 
   Stream<String> getLoadingMessages() {
     final messages = <String>[
