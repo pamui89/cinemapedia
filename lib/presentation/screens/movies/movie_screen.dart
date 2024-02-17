@@ -93,7 +93,7 @@ class _MovieDetails extends StatelessWidget {
           child: Wrap(
             children: [
               ...movie.genreIds.map((genre) => Container(
-                margin: EdgeInsets.only(right: 10),
+                margin: const EdgeInsets.only(right: 10),
                 child: Chip(
                   label: Text(genre),
                   shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
