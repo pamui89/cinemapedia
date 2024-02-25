@@ -14,8 +14,8 @@ final appRouter = GoRouter(
           path: 'movie/:id',
           name: MovieScreen.name,
           builder: (context, state) {
-            final movieId = state.pathParameters['id'] ?? 'no-id';
-            return MovieScreen(movieId: movieId);
+            final movieId = state.pathParameters['id'] ?? '0';
+            return MovieScreen(movieId: int.parse(movieId));
           },
         ),
       ]

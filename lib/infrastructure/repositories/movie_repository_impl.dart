@@ -27,7 +27,7 @@ class MovieRepositoryImpl extends MoviesRepository {
   }
 
   @override
-  Future<Movie> getMovieById(String id) {
+  Future<Movie> getMovieById(int id) {
     return datasource.getMovieById(id);
   }
 }

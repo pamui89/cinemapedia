@@ -3,19 +3,19 @@ import 'package:cinemapedia/presentation/providers/cast/cast_repository_provider
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 final castByMovieProvider =
-    StateNotifierProvider<CastByMovieNotifier, Map<String, List<CastMember>>>((ref) {
+    StateNotifierProvider<CastByMovieNotifier, Map<int, List<CastMember>>>((ref) {
   final getCast = ref.watch(castRepositoryProvider).getCastByMovie;
 
   return CastByMovieNotifier(getCast: getCast);
 });
 
-typedef GetCastCallback = Future<List<CastMember>> Function(String movieId);
+typedef GetCastCallback = Future<List<CastMember>> Function(int movieId);
 
-class CastByMovieNotifier extends StateNotifier<Map<String, List<CastMember>>> {
+class CastByMovieNotifier extends StateNotifier<Map<int, List<CastMember>>> {
   final GetCastCallback getCast;
   CastByMovieNotifier({required this.getCast}) : super({});
 
-  Future<void> loadCast(String movieId) async {
+  Future<void> loadCast(int movieId) async {
     if (state[movieId] != null) return;
     
     final List<CastMember> cast = await getCast(movieId);

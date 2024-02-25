@@ -8,7 +8,7 @@ class CastRepositoryImpl extends CastRepository {
   CastRepositoryImpl(this.castDatasource);
 
   @override
-  Future<List<CastMember>> getCastByMovie(String movieId) {
+  Future<List<CastMember>> getCastByMovie(int movieId) {
     return castDatasource.getCastByMovie(movieId);
   }
 }
