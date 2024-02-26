@@ -1,3 +1,4 @@
+import 'package:cinemapedia/presentation/delegates/search_movie_delegate.dart';
 import 'package:flutter/material.dart';
 
 class CustomAppbar extends StatelessWidget {
@@ -9,19 +10,23 @@ class CustomAppbar extends StatelessWidget {
     final titleStyle = Theme.of(context).textTheme.titleMedium;
     return SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: Row(
-            children: [
-              Icon(Icons.movie_outlined, color: colors.primary),
-              const SizedBox(width: 5),
-              Text('Cinemapedia', style: titleStyle,),
-              const Spacer(),
-              IconButton(
-                onPressed: (){}, 
-                icon: const Icon(Icons.search)
-              )
-            ],
+      padding: const EdgeInsets.symmetric(horizontal: 10),
+      child: Row(
+        children: [
+          Icon(Icons.movie_outlined, color: colors.primary),
+          const SizedBox(width: 5),
+          Text(
+            'Cinemapedia',
+            style: titleStyle,
           ),
+          const Spacer(),
+          IconButton(
+              onPressed: () {
+                showSearch(context: context, delegate: SearchMovieDelegate());
+              },
+              icon: const Icon(Icons.search))
+        ],
+      ),
     ));
   }
 }
