@@ -4,13 +4,23 @@ import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
   static const name = 'home-screen';
+  final int pageIndex;
 
-  const HomeScreen({super.key});
+  const HomeScreen({super.key, required this.pageIndex});
+
+  final viewRoutes = const <Widget>[
+    HomeView(),
+    CategoriesView(),
+    FavoritesView()
+  ];
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-        bottomNavigationBar: CustomBottonNavigation(), body: FavoritesView());
+    return Scaffold(
+        bottomNavigationBar: const CustomBottonNavigation(),
+        body: IndexedStack(
+          index: pageIndex,
+          children: viewRoutes,
+        ));
   }
 }
-
