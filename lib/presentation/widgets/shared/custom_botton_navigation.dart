@@ -1,42 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class CustomBottonNavigation extends StatelessWidget {
-  const CustomBottonNavigation({super.key});
+  final int pageIndex;
+  const CustomBottonNavigation({super.key, required this.pageIndex});
 
-  // void _onItemTap(BuildContext context, int tabIndex) {
-  //   switch (tabIndex) {
-  //     case 0:
-  //       context.go('/');
-  //       break;
-  //     case 1:
-  //       context.go('/categories');
-  //       break;
-  //     case 2:
-  //       context.go('/favorites');
-  //       break;
-  //   }
-  // }
-
-  // int _currentTabIndex(BuildContext context) {
-  //   final String? tabIndex = GoRouterState.of(context).fullPath;
-
-  //   switch (tabIndex) {
-  //     case '/':
-  //       return 0;
-  //     case '/categories':
-  //       return 1;
-  //     case '/favorites':
-  //       return 2;
-  //     default:
-  //       return 0;
-  //   }
-  // }
+  void _onItemTap(BuildContext context, int tabIndex) {
+    context.go('/home/$tabIndex');
+  }
 
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
-      // currentIndex: _currentTabIndex(context),
-      //   onTap: (tabIndex) => _onItemTap(context, tabIndex),
+        currentIndex: pageIndex,
+        onTap: (tabIndex) => _onItemTap(context, tabIndex),
+        elevation: 100,
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home_max), label: 'Inicio'),
           BottomNavigationBarItem(
