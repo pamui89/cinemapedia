@@ -130,6 +130,15 @@ class _CustomSliverAppBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return SliverAppBar(
+      actions: [
+        IconButton(
+          onPressed:() {
+            //TODO realizar toggle
+          }, 
+          // icon: const Icon(Icons.favorite_rounded, color: Colors.red,)
+          icon: const Icon(Icons.favorite_border)
+        )
+      ],
       backgroundColor: Colors.black,
       expandedHeight: size.height * 0.7,
       foregroundColor: Colors.white,
@@ -146,6 +155,15 @@ class _CustomSliverAppBar extends StatelessWidget {
                   return FadeIn(child: child);
                 },
               ),
+            ),
+            const SizedBox.expand(
+              child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topRight,
+                          end: Alignment.bottomLeft,
+                          stops: [0.0, 0.2],
+                          colors: [Colors.black54, Colors.transparent]))),
             ),
             const SizedBox.expand(
               child: DecoratedBox(
@@ -228,5 +246,20 @@ class _CastByMovie extends ConsumerWidget {
         },
       ),
     );
+  }
+}
+
+//todo _CustomGradient
+
+class _CustomGradient extends StatelessWidget {
+  //begin
+  //end
+  //stop
+  //color
+  const _CustomGradient();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
   }
 }
