@@ -5,6 +5,7 @@ class FavoritesView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //TODO implementar almacenamiento local para los favoritos
     return Scaffold(
       appBar: AppBar(
         title: const Text('Favorites View'),
