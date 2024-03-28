@@ -22,18 +22,19 @@ class FavoritesViewState extends ConsumerState<FavoritesView> {
 
   @override
   Widget build(BuildContext context) {
-    final initialLoading = ref.watch(initialLoadingProvider);
-    if (initialLoading) return const FullscreenLoader();
+    // final initialLoading = ref.watch(initialLoadingProvider);
+    // if (initialLoading) return const FullscreenLoader();
 
-    final favoriteMovies = ref.watch(favoriteMoviesProvider);
-          final List<Movie> favoriteMoviesList = favoriteMovies.values.toList();
+    final List<Movie> favoriteMovies =
+        ref.watch(favoriteMoviesProvider).values.toList();
     return Scaffold(
       body: ListView.builder(
         itemCount: favoriteMovies.length,
         itemBuilder: (context, index) {
+          final movie = favoriteMovies[index];
           return ListTile(
             // title: Text('Movie name'),
-            title: Text(favoriteMoviesList[index].title),
+            title: Text(movie.title),
           );
         },
       ),
