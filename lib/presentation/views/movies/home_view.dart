@@ -1,5 +1,10 @@
-import 'package:cinemapedia/presentation/providers/providers.dart';
-import 'package:cinemapedia/presentation/widgets/widgets.dart';
+import 'package:cinemapedia/presentation/providers/movies/initial_loading_provider.dart';
+import 'package:cinemapedia/presentation/providers/movies/movies_providers.dart';
+import 'package:cinemapedia/presentation/providers/movies/movies_slideshow_provider.dart';
+import 'package:cinemapedia/presentation/widgets/movies/movies_horizontal_listview.dart';
+import 'package:cinemapedia/presentation/widgets/movies/movies_slideshow.dart';
+import 'package:cinemapedia/presentation/widgets/shared/custom_appbar.dart';
+import 'package:cinemapedia/presentation/widgets/shared/fullscreen_loader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 

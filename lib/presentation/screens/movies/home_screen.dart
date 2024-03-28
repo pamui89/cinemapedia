@@ -1,5 +1,7 @@
-import 'package:cinemapedia/presentation/views/views.dart';
-import 'package:cinemapedia/presentation/widgets/widgets.dart';
+import 'package:cinemapedia/presentation/views/movies/categories_view.dart';
+import 'package:cinemapedia/presentation/views/movies/favorites_view.dart';
+import 'package:cinemapedia/presentation/views/movies/home_view.dart';
+import 'package:cinemapedia/presentation/widgets/shared/custom_botton_navigation.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatelessWidget {
