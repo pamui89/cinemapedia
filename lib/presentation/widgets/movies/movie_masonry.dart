@@ -17,10 +17,10 @@ class _MovieMasonryState extends State<MovieMasonry> {
   @override
   void initState() {
     super.initState();
-    // print(scrollController.position.pixels);
+
     scrollController.addListener(() {
       if (widget.loadNextPage == null) return;
-      if ((scrollController.position.pixels + 50) >=
+      if ((scrollController.position.pixels + 100) >=
           scrollController.position.maxScrollExtent) {
         widget.loadNextPage!();
       }
@@ -43,7 +43,7 @@ class _MovieMasonryState extends State<MovieMasonry> {
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
         itemCount: widget.movies.length,
-        itemBuilder: (context, index) {
+        itemBuilder: (_, index) {
           if (index == 1) {
             return Column(
               children: [
